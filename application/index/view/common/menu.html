@@ -1,0 +1,177 @@
+<header class="top header-v1 desktops-section default-top">
+    <div class="top-main">
+        <div class="page-width clearfix">
+            <div class="logo" skinobjectzone="HtmlLogo_399"><a href="#"><img src="__INDEX__/images/logo.png" alt="视觉摄影"/></a></div>
+
+            <div class="top-main-content clearfix">
+                <nav class="nav">
+                    <div class="main-nav clearfix" skinobjectzone="menu_468">
+                        <ul class="sf-menu">
+                            <li {eq name="currtype" value="0"}class="current"{/eq}><a class="first-level" href="{:url('index/Index/index')}" target><strong>{$Think.lang.Index}</strong></a><i></i></li>
+                            {volist name="cate" id="vo"}
+                            <li {eq name="currtype" value="$vo.type"}class="current"{/eq}><a class="first-level" href="{$vo.type|makeurl=###,$vo.id}" target><strong>{$vo.name}</strong></a><i></i>
+                                <ul class>
+                                    {volist name="vo.child" id="v"}
+                                    <li class><a class href="{$v.type|makeurl=###,$v.id}" target><strong>{$v.name}</strong></a></li>
+                                    {/volist}
+                                </ul>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="language" skinobjectzone="HtmlLanguage_1279">
+                <ul class="sf-menu">
+                    <li><a href="javascript:;" class="first-level"><span><em>{$Think.lang.English}</em></span></a>
+                        <ul>
+                            <li><a href="javascript:;" onclick="setlang('zh-cn')"><span><em>{:lang('zh-cn')}</em></span></a></li>
+                            <li><a href="javascript:;" onclick="setlang('en-us')"><span><em>{:lang('en-us')}</em></span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</header>
+
+<div class="touch-top mobile-section clearfix">
+    <div class="touch-top-wrapper clearfix">
+        <div class="touch-logo" skinobjectzone="HtmlLogo_2654"><a class href="#"><img src="__INDEX__/images/logo.png" alt="中英双语响应式视觉艺术摄影类织梦模板(自适应手机端)"/></a></div>
+
+        <div class="touch-navigation">
+            <div class="touch-toggle">
+                <ul>
+                    <li class="touch-toggle-item-first"><a href="javascript:;" class="drawer-language" data-drawer="drawer-section-language"><i class="touch-icon-language"></i><span>语言</span></a></li>
+                    <li class="touch-toggle-item-last"><a href="javascript:;" class="drawer-menu" data-drawer="drawer-section-menu"><i class="touch-icon-menu"></i><span>导航</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="touch-toggle-content touch-top-home">
+        <div class="drawer-section drawer-section-language">
+            <ul class="touch-language clearfix" skinobjectzone="HtmlLanguage_2927">
+                <li><a href="#">English</a></li>
+                <li><a href="#">中文简体</a></li>
+            </ul>
+        </div>
+        <div class="drawer-section drawer-section-menu">
+            <div class="touch-menu" skinobjectzone="menu_3145">
+                <ul>
+                    <li><a href="#"><span>首页</span></a></li>
+                    <li><a href="javascript:;"><span>关于我们</span><i class="touch-arrow-down"></i></a>
+                        <ul>
+                            <li><a href="#"><span>公司简介</span></a></li>
+                            <li><a href="#"><span>专业团队</span></a></li>
+                            <li><a href="#"><span>人才招聘</span></a></li>
+                        </ul>
+                    </li><li><a href="javascript:;"><span>摄影作品</span><i class="touch-arrow-down"></i></a>
+                    <ul>
+                        <li><a href="#"><span>服装摄影</span></a></li>
+                        <li><a href="#"><span>产品摄影</span></a></li>
+                        <li><a href="#"><span>皮具摄影</span></a></li>
+                        <li><a href="#"><span>化妆品摄影</span></a></li>
+                        <li><a href="#"><span>珠宝饰品</span></a></li>
+                    </ul>
+                </li><li><a href="javascript:;"><span>模特资料</span><i class="touch-arrow-down"></i></a>
+
+                    <ul>
+                        <li><a href="#"><span>国内女模特</span></a></li>
+                        <li><a href="#"><span>国内男模特</span></a></li>
+                        <li><a href="#"><span>国外女模特</span></a></li>
+                        <li><a href="#"><span>国外男模特</span></a></li>
+                    </ul>
+                </li>
+                    <li><a href="#"><span>摄影场景</span></a></li>
+                    <li><a href="javascript:;"><span>新闻资讯</span><i class="touch-arrow-down"></i></a>
+                        <ul>
+                            <li><a href="#"><span>公司新闻</span></a></li>
+                            <li><a href="#"><span>摄影学堂</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><span>联系我们</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+
+
+
+                $(".touch-toggle a").click(function(event){
+
+                    var className = $(this).attr("data-drawer");
+
+
+
+                    if( $("."+className).css('display') == 'none' ){
+
+                        $("."+className).slideDown().siblings(".drawer-section").slideUp();
+
+                    }else{
+
+                        $(".drawer-section").slideUp();
+
+                    }
+
+                    event.stopPropagation();
+
+                });
+
+
+
+                $(document).click(function(){
+
+                    $(".drawer-section").slideUp();
+
+                })
+
+
+
+                $('.touch-menu a').click(function(){
+
+                    if( $(this).next().is('ul') ){
+
+                        if( $(this).next('ul').css('display') == 'none' ){
+
+                            $(this).next('ul').slideDown();
+
+                            $(this).find('i').attr("class","touch-arrow-up");
+
+                        }else{
+
+                            $(this).next('ul').slideUp();
+
+                            $(this).next('ul').find('ul').slideUp();
+
+                            $(this).find('i').attr("class","touch-arrow-down");
+
+                        }
+
+                    }
+
+                });
+
+            });
+
+        </script></div>
+</div>
+<script src="__INDEX__/js/jquery-1.7.2.min.js"></script>
+<script>
+    function setlang(lang) {
+        $.ajax({
+            type:'get',
+            url:"{:url('base/setlang/set')}?lang="+lang,
+            success:function(data){
+                if(data==1){
+                    window.location.reload();
+                }
+            }
+        })
+    }
+</script>
